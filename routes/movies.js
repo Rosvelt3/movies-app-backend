@@ -16,7 +16,7 @@ const advancedResults = require('../middleware/advancedResults');
 const { protect, authorize } = require('../middleware/auth');
 
 router.route('/')
-    .get(advancedResults(Movie, 'users'), getMovies)
+    .get(advancedResults(Movie), getMovies)
     .post(protect, authorize('admin'), createMovie)
 
 router.route('/:id')

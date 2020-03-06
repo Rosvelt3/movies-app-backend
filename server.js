@@ -11,7 +11,7 @@ const cors = require('cors');
 const errorHandler = require('./middleware/error');
 const port = process.env.PORT || 5000;
 
-require('dotenv').config({path: './config/config.env'});
+require('dotenv').config({ path: './config/config.env' });
 connectDB();
 
 const movies = require('./routes/movies');
@@ -24,20 +24,20 @@ app.use(cookieParser());
 app.use(mongoSanitize());
 app.use(helmet());
 app.use(xss());
-app.use(rateLimit({windowMs: 10 * 60 * 1000, max:10000}));
+app.use(rateLimit({ windowMs: 10 * 60 * 1000, max: 10000 }));
 app.use(hpp());
 
-const whitelist =["http://localhost:3000","https://bootcamper-5a096.web.app"];
+const whitelist = ["http://localhost:3000", "https://bootcamper-5a096.web.app"];
 app.use(cors({
-    credentials:true,
-    methods: ['GET', 'PUT', 'POST', 'DELETE'],
-    origin: function(origin, callback){
-        if(whitelist.indexOf(origin) !== -1){
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by cors"));
-        }
+  credentials: true,
+  methods: ['GET', 'PUT', 'POST', 'DELETE'],
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by cors"));
     }
+  }
 }));
 
 if (process.env.NODE_ENV === 'development') {
@@ -46,10 +46,10 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use('/api/v1/movies', movies);
 app.use('/api/v1/auth', auth);
-app.use('/api/v1/courses', users);
+app.use('/api/v1/users', users);
 app.use(errorHandler);
 
-const server = app.listen(port, ()=>{
+const server = app.listen(port, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`);
 });
 
