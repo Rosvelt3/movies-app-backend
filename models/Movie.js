@@ -12,6 +12,22 @@ const MovieSchema = new mongoose.Schema(
       type: String,
       default: 'https://via.placeholder.com/270x360.jpg'
     },
+    actors: {
+      type: [String],
+      required: [true, 'Please add at least 1 actor']
+    },
+    releaseYear: {
+      type: Number,
+      required: [true, 'Please add the release year']
+    },
+    director: {
+      type: String,
+      required: [true, 'Please add the director']
+    },
+    budget: {
+      type: Number,
+      required: [true, 'Please add the budget']
+    },
     genres: {
       type: [String],
       required: [true, 'Please add at least 1 genre']
