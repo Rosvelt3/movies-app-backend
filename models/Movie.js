@@ -10,7 +10,7 @@ const MovieSchema = new mongoose.Schema(
     slug: String,
     photo: {
       type: String,
-      default: 'https://via.placeholder.com/270x360'
+      default: 'https://via.placeholder.com/270x360.jpg'
     },
     genres: {
       type: [String],
