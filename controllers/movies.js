@@ -13,7 +13,7 @@ exports.getMovies = asyncHandler(async (req, res, next) => {
 // @route   GET /api/v1/movies/:id
 // @access  Private
 exports.getMovie = asyncHandler(async (req, res, next) => {
-  const movie = await Movie.findById(req.params.id).populate('courses');
+  const movie = await Movie.findById(req.params.id);
 
   if (!movie) {
     return next(new ErrorResponse(`Movie not found with id of ${req.params.id}`, 404));
