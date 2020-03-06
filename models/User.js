@@ -19,7 +19,11 @@ const UserSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    default: 'https://via.placeholder.com/150'
+    default: 'https://via.placeholder.com/150',
+    match: [
+      /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$/,
+      'Please add a valid photo URL'
+    ]
   },
   role: {
     type: String,
