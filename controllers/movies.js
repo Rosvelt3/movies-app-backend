@@ -65,7 +65,7 @@ exports.deleteMovie = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`Movie not found with id of ${req.params.id}`, 404));
   }
 
-  if (movie.user.toString() !== req.user.id && req.user.role !== 'admin') {
+  if (req.user.role !== 'admin') {
     return next(new ErrorResponse(`User ${req.user.id} is not authorized to delete this movie`, 401));
   }
 
