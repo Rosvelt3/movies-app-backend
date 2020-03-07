@@ -36,11 +36,10 @@ const UserSchema = new mongoose.Schema({
     minlength: 6,
     select: false
   },
-  favoriteMovies: {
+  favoriteMovies: [{
     type: [mongoose.Schema.ObjectId],
-    ref: 'Movie',
-    default: []
-  },
+    ref: 'Movie'
+  }],
   createdAt: {
     type: Date,
     default: Date.now
