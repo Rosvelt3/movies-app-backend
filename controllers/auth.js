@@ -77,7 +77,8 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
   const fieldsToUpdate = {
     name: req.body.name,
     email: req.body.email,
-    photo: req.body.photo
+    photo: req.body.photo,
+    favoriteMovies: req.body.favoriteMovies
   }
 
   const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
