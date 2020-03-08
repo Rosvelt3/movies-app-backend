@@ -12,6 +12,14 @@ const MovieSchema = new mongoose.Schema(
       type: String,
       default: 'https://via.placeholder.com/270x360.jpg'
     },
+    trailer:{
+      type: String,
+      required: [true, 'Please add a trailer link'],
+      match: [
+        /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/,
+        'Please add a valid youtube embedded video'
+      ]
+    },
     actors: {
       type: [String],
       required: [true, 'Please add at least 1 actor']
