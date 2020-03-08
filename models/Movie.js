@@ -12,7 +12,7 @@ const MovieSchema = new mongoose.Schema(
       type: String,
       default: 'https://via.placeholder.com/270x360.jpg'
     },
-    trailer:{
+    trailer: {
       type: String,
       required: [true, 'Please add a trailer link'],
       match: [
