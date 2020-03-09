@@ -10,7 +10,11 @@ const MovieSchema = new mongoose.Schema(
     slug: String,
     photo: {
       type: String,
-      default: 'https://via.placeholder.com/270x360.jpg'
+      default: 'https://via.placeholder.com/270x360.jpg',
+      match: [
+        /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$/,
+        'Please add a valid photo URL'
+      ]
     },
     trailer: {
       type: String,
