@@ -46,6 +46,7 @@ const MovieSchema = new mongoose.Schema(
     },
     rating: {
       type: Number,
+      required: [true, 'Please add a rating'],
       min: [1, 'Rating must be at least 1'],
       max: [10, 'Rating must can not be more than 10']
     }
