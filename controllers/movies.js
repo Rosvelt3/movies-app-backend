@@ -50,7 +50,7 @@ exports.updateMovie = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`User ${req.user.id} is not authorized to update this movie`, 401));
   }
 
-  await movie.updateOne(req.body);
+  await movie.updateOne(req.body, { runValidators: true });
 
   res.status(200).json({ success: true, data: movie });
 });
