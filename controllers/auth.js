@@ -68,7 +68,9 @@ exports.logout = asyncHandler(async (req, res, next) => {
   if (process.env.NODE_ENV === "production") {
     options.secure = true;
   }
-  
+
+  res.clearCookie("token", options);
+
   res.status(200).json({
     success: true,
     data: {},
