@@ -27,7 +27,7 @@ app.use(xss());
 app.use(rateLimit({ windowMs: 10 * 60 * 1000, max: 10000 }));
 app.use(hpp());
 
-const whitelist = ["http://localhost:3000", "https://bootcamper-5a096.web.app"];
+const whitelist = ["http://localhost:3000", "https://movies-app-backend.herokuapp.com"];
 app.use(cors({
   credentials: true,
   methods: ['GET', 'PUT', 'POST', 'DELETE'],
